@@ -79,17 +79,17 @@ class rotors:
         self.Message = input("Enter the message you want to decode: ")
         self.key = input("Enter the key to decrypt: ")
         self.keyList = self.key.split("/")
+        for i in self.keyList:
+            int(i)
         for i in range(self.NumberOfRotation):
             for j in self.Message:
-                self.OldLetterID = Alphabet[j] - self.keyList[-i]
-                if self.OldLetterID < 0:
-                    self.OldLetterID += 27
-                else:
-                    self.OldLetterID = self.OldLetterID 
-                
+                self.OldLetterID = Alphabet[j] - int(self.keyList[-i])
+                self.OldLetterID -= i 
                 self.OldLetter = ListOfValues[self.OldLetterID - 1] 
                 self.OldMessageList.append(self.OldLetter)
-                print(self.OldMessageList)
-        self.OldMessage = "".join(self.OldMessageList) 
+                print(self.OldMessageList) 
+        self.OldMessage = "".join(str(self.OldMessageList)) 
+        self.OldMessage = "".join(self.OldMessage)
+        print("penis")
         print(self.OldMessage)      
         print(self.OldMessageList)       
