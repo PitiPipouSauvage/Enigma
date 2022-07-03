@@ -90,6 +90,7 @@ class rotors:
                 print(self.OldMessageList) 
         self.OldMessage = "".join(str(self.OldMessageList)) 
         self.OldMessage = "".join(self.OldMessage)
-        print("penis")
+        for i in range(len(self.OldMessageList)):
+            self.OldMessageList[i] - i         
         print(self.OldMessage)      
         print(self.OldMessageList)       
