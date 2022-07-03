@@ -12,7 +12,7 @@ while not end:
         enigma.encode()
         end =  True 
     elif action == "D":
-        enigma.decode()
+        print(enigma.decode())
         end = True 
     else:
         print("Unknown action")

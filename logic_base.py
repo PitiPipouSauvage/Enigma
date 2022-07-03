@@ -30,6 +30,7 @@ class rotors:
         self.OldLetterID = int()
         self.OldMessageList = list()
         self.OldMessage = str()
+        self.OldMessageStr = str()
         
     def encode(self):
         self.Message = input("Enter a message ")
@@ -37,9 +38,9 @@ class rotors:
         MessageList = list()
         for j in range(self.NumberOfRotation):
             #Definition the ammount of rotation
-            self.StartingLetterID = randint(0, 26)  
-            # self.StartingLetter = ListOfKeys[self.StartingLetterID]
-            # self.StartID = Alphabet[self.StartingLetter]
+            self.StartingLetterID = randint(0, 26) 
+            
+            CodeKeyList.append(str(self.StartingLetterID)) #create a key to decode the message
             
             for i in self.MessageNF:
                 self.StartingLetter = ListOfKeys[self.StartingLetterID]
@@ -50,8 +51,7 @@ class rotors:
                 self.NewLetterID = ListOfValues[self.NewLetterIDNF2 - 1]
                 self.NewLetterKey = ListOfKeys[self.NewLetterID - 1]
                 self.NewLetter = self.NewLetterKey 
-                MessageList.append(self.NewLetter)
-                CodeKeyList.append(str(self.StartingLetterID))   #create a key to decode the message 
+                MessageList.append(self.NewLetter) 
                 if self.StartingLetterID < 26:
                     self.StartingLetterID += 1
                 else:
@@ -87,10 +87,9 @@ class rotors:
                 self.OldLetterID -= i 
                 self.OldLetter = ListOfValues[self.OldLetterID - 1] 
                 self.OldMessageList.append(self.OldLetter)
-                print(self.OldMessageList) 
-        self.OldMessage = "".join(str(self.OldMessageList)) 
-        self.OldMessage = "".join(self.OldMessage)
+        self.OldMessage = "".join(str(self.OldMessageList))
+        self.OlMessageStr = "/".join(self.OldMessage)
         for i in range(len(self.OldMessageList)):
             self.OldMessageList[i] - i         
-        print(self.OldMessage)      
-        print(self.OldMessageList)       
+        
+        return self.OldMessageStr , self.OldMessageList       
